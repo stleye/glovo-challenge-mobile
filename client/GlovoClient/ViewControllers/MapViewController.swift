@@ -12,25 +12,46 @@ import CoreLocation
 
 class MapViewController: UIViewController {
 
-    private var locationManager: CLLocationManager!
-    private var mapView: GMSMapView!
-    private var workingAreas: [WorkingArea] = []
-    private var checkWorkingAreas = true
+    @IBOutlet weak var mapView: GMSMapView? {
+        didSet {
+            mapView?.delegate = self
+        }
+    }
+
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var currencyLabel: UILabel!
+    @IBOutlet weak var timeZoneLabel: UILabel!
+    @IBOutlet weak var languageLabel: UILabel!
 
     var currentLocation: CLLocationCoordinate2D? {
         didSet {
             if navigationController?.topViewController != self { return }
+            updateCurrentWorkingArea()
             positionOn(latitude: currentLocation!.latitude, longitude: currentLocation!.longitude)
-            if !checkWorkingAreas { return }
-            var userIsInsideWorkingArea = false
-            for workingArea in workingAreas {
-                if workingArea.contains(location: currentLocation!) {
-                    userIsInsideWorkingArea = true
-                    break
-                }
-            }
-            if !userIsInsideWorkingArea {
+            if checkWorkingAreas && currentWorkingArea == nil {
                 goToSelectCityScreen()
+            }
+        }
+    }
+
+    private var currentZoom: Float = 15.0
+    private var locationManager: CLLocationManager!
+    private var workingAreas: [String: [WorkingArea]] = [:]
+    private var checkWorkingAreas = true
+    private var markers: [GMSMarker] = []
+
+    private var currentWorkingArea: (cityCode: String, workingArea: WorkingArea)? {
+        didSet {
+            if currentWorkingArea == nil { return }
+            CityDetails.getFor(cityCode: currentWorkingArea!.cityCode, onCompletionHandler: { (city) in
+                let details = ((city as! JsonDictionary).decodable as! CityDetail)
+                self.cityLabel.text = details.name
+                self.currencyLabel.text = "Currency - \(details.currency)"
+                self.timeZoneLabel.text = details.time_zone
+                self.languageLabel.text = "Language - \(details.language_code)"
+            }) { (error) in
+                Alerts.showAlert(viewController: self, message: "There has been a problem obtaining city details")
             }
         }
     }
@@ -39,33 +60,18 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
 
         createLocationManager()
-        createMapView()
 
         Cities.fetch(onCompletionHandler: { (jsonCollection) in
             let cities = (jsonCollection as! JsonArray).decodables as! [City]
             for city in cities {
-                self.workingAreas.append(contentsOf: city.workingAreas())
-//                for workingArea in city.workingAreas() {
-//                    workingArea.polyline.map = self.mapView
-//                }
+                self.workingAreas[city.code] = city.workingAreas()
+                for workingArea in self.workingAreas[city.code] ?? [] {
+                    workingArea.polyline.map = self.mapView
+                }
             }
         }) { (error) in
             print("Error")
         }
-
-//        // Creates a marker in the center of the map.
-//        let marker = GMSMarker()
-//        marker.position = CLLocationCoordinate2D(latitude: -33.86, longitude: 151.20)
-//        marker.title = "Sydney"
-//        marker.snippet = "Australia"
-//        marker.map = mapView
-
-//        CityDetails.getFor(cityCode: "BCN", onCompletionHandler: { (city) in
-//            let working_areas = ((city as! JsonDictionary).decodable as! CityDetail).working_area
-//            let a = 2
-//        }) { (error) in
-//            print ("Error")
-//        }
     }
 
     private func createLocationManager() {
@@ -76,15 +82,9 @@ class MapViewController: UIViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
     }
 
-    private func createMapView() {
-        let camera = GMSCameraPosition.camera(withLatitude: 0.0, longitude: 0.0, zoom: 1.0)
-        mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        view = mapView
-    }
-
     private func positionOn(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: 15.0)
-        mapView.animate(to: camera)
+        mapView?.animate(to: camera)
     }
 
     private func goToSelectCityScreen() {
@@ -92,6 +92,20 @@ class MapViewController: UIViewController {
         locationManager.stopUpdatingLocation()
         self.performSegue(withIdentifier: "citySelectionSegue", sender: self)
     }
+
+    private func updateCurrentWorkingArea() {
+        currentWorkingArea = nil
+        if currentLocation == nil { return }
+        for (cityCode, workingAreas) in self.workingAreas {
+            for workingArea in workingAreas {
+                if workingArea.contains(location: currentLocation!) {
+                    currentWorkingArea = (cityCode, workingArea)
+                    break
+                }
+            }
+        }
+    }
+
 }
 
 extension MapViewController: CLLocationManagerDelegate {
@@ -101,16 +115,10 @@ extension MapViewController: CLLocationManagerDelegate {
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
             break
-        case .authorizedWhenInUse:
+        case .authorizedWhenInUse, .authorizedAlways:
             locationManager.startUpdatingLocation()
             break
-        case .authorizedAlways:
-            locationManager.startUpdatingLocation()
-            break
-        case .restricted:
-            goToSelectCityScreen()
-            break
-        case .denied:
+        case .restricted, .denied:
             goToSelectCityScreen()
             break
         }
@@ -119,4 +127,26 @@ extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         currentLocation = locations.last!.coordinate
     }
+}
+
+extension MapViewController: GMSMapViewDelegate {
+
+    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+        if position.zoom <= 7.0 && currentZoom > 7.0 {
+            if markers.isEmpty {
+                for (_, workingAreas) in self.workingAreas {
+                    let firstWorkingArea = workingAreas.first!
+                    let marker = GMSMarker(position: firstWorkingArea.center())
+                    markers.append(marker)
+                }
+            }
+            markers.forEach { (marker) in marker.map = mapView }
+        } else {
+            if position.zoom >= 7.0 && currentZoom < 7.0 {
+                markers.forEach { (marker) in marker.map = nil }
+            }
+        }
+        currentZoom = position.zoom
+    }
+
 }
