@@ -35,4 +35,9 @@ class WorkingArea {
         return GMSGeometryContainsLocation(location, GMSPath(fromEncodedPath: encoded)!, true)
     }
 
+    //Fix this, I am not returning the center
+    func center() -> CLLocationCoordinate2D {
+        return decodedCoordinates.first ?? CLLocationCoordinate2D(latitude: 0, longitude: 0)
+    }
+
 }
