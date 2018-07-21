@@ -1,0 +1,7 @@
+source 'https://github.com/CocoaPods/Specs.git'
+target 'GlovoClient' do
+  pod 'Alamofire', '~> 4.5'
+  pod 'Polyline', '~> 4.0'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
+end

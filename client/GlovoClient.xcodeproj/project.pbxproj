@@ -1,0 +1,548 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C539FD722100FF7D00111AA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C539FD712100FF7D00111AA4 /* AppDelegate.swift */; };
+		C539FD742100FF7D00111AA4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C539FD732100FF7D00111AA4 /* MapViewController.swift */; };
+		C539FD772100FF7D00111AA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C539FD752100FF7D00111AA4 /* Main.storyboard */; };
+		C539FD792100FF8400111AA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C539FD782100FF8400111AA4 /* Assets.xcassets */; };
+		C539FD7C2100FF8400111AA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C539FD7A2100FF8400111AA4 /* LaunchScreen.storyboard */; };
+		C5A5CD5A2102B9280056F20A /* CityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5CD592102B9280056F20A /* CityTableViewController.swift */; };
+		C5A5CD5C2102B9DD0056F20A /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5CD5B2102B9DD0056F20A /* CityTableViewCell.swift */; };
+		C5A5CD6A2102C5D20056F20A /* AVHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5CD5E2102C5D20056F20A /* AVHUD.swift */; };
+		C5A5CD6B2102C5D20056F20A /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A5CD602102C5D20056F20A /* SVRadialGradientLayer.m */; };
+		C5A5CD6C2102C5D20056F20A /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A5CD632102C5D20056F20A /* SVProgressAnimatedView.m */; };
+		C5A5CD6D2102C5D20056F20A /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A5CD662102C5D20056F20A /* SVProgressHUD.m */; };
+		C5A5CD6E2102C5D20056F20A /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A5CD672102C5D20056F20A /* SVIndefiniteAnimatedView.m */; };
+		C5A5CD6F2102C5D20056F20A /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C5A5CD682102C5D20056F20A /* SVProgressHUD.bundle */; };
+		C5A5CD722102C62C0056F20A /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A5CD712102C62C0056F20A /* Alerts.swift */; };
+		C5C3280921010D97006D1963 /* JsonFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C3280821010D97006D1963 /* JsonFetcher.swift */; };
+		C5C3280E21010E59006D1963 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C3280D21010E59006D1963 /* Countries.swift */; };
+		C5C328102101109A006D1963 /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C3280F2101109A006D1963 /* Cities.swift */; };
+		C5C32812210112E2006D1963 /* CityDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C32811210112E2006D1963 /* CityDetails.swift */; };
+		C5D472CD64DC0FD4FEADD45E /* libPods-GlovoClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ED4F66E7E85280CDF91578F /* libPods-GlovoClient.a */; };
+		C5DB84BC21038ED3001CACEC /* WorkingArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DB84BB21038ED3001CACEC /* WorkingArea.swift */; };
+		C5DB84BF2103A7F1001CACEC /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DB84BE2103A7F1001CACEC /* UserLocation.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8ED4F66E7E85280CDF91578F /* libPods-GlovoClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GlovoClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABE1077767968B9ACD082117 /* Pods-GlovoClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GlovoClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-GlovoClient/Pods-GlovoClient.release.xcconfig"; sourceTree = "<group>"; };
+		C23C3B903864232DEAC32370 /* Pods-GlovoClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GlovoClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GlovoClient/Pods-GlovoClient.debug.xcconfig"; sourceTree = "<group>"; };
+		C539FD6E2100FF7D00111AA4 /* GlovoClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlovoClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C539FD712100FF7D00111AA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C539FD732100FF7D00111AA4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		C539FD762100FF7D00111AA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C539FD782100FF8400111AA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C539FD7B2100FF8400111AA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C539FD7D2100FF8400111AA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5A5CD592102B9280056F20A /* CityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewController.swift; sourceTree = "<group>"; };
+		C5A5CD5B2102B9DD0056F20A /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
+		C5A5CD5E2102C5D20056F20A /* AVHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVHUD.swift; sourceTree = "<group>"; };
+		C5A5CD602102C5D20056F20A /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
+		C5A5CD612102C5D20056F20A /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		C5A5CD622102C5D20056F20A /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		C5A5CD632102C5D20056F20A /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressAnimatedView.m; sourceTree = "<group>"; };
+		C5A5CD642102C5D20056F20A /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		C5A5CD652102C5D20056F20A /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		C5A5CD662102C5D20056F20A /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		C5A5CD672102C5D20056F20A /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		C5A5CD682102C5D20056F20A /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		C5A5CD692102C5D20056F20A /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
+		C5A5CD712102C62C0056F20A /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		C5A5CD732102C6C00056F20A /* GlovoClient-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GlovoClient-Bridging-Header.h"; sourceTree = "<group>"; };
+		C5C3280821010D97006D1963 /* JsonFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonFetcher.swift; sourceTree = "<group>"; };
+		C5C3280D21010E59006D1963 /* Countries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
+		C5C3280F2101109A006D1963 /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
+		C5C32811210112E2006D1963 /* CityDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetails.swift; sourceTree = "<group>"; };
+		C5DB84BB21038ED3001CACEC /* WorkingArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingArea.swift; sourceTree = "<group>"; };
+		C5DB84BE2103A7F1001CACEC /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C539FD6B2100FF7D00111AA4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5D472CD64DC0FD4FEADD45E /* libPods-GlovoClient.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16A202A96C2EEBC343D7CB67 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C23C3B903864232DEAC32370 /* Pods-GlovoClient.debug.xcconfig */,
+				ABE1077767968B9ACD082117 /* Pods-GlovoClient.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C539FD652100FF7D00111AA4 = {
+			isa = PBXGroup;
+			children = (
+				C539FD702100FF7D00111AA4 /* GlovoClient */,
+				C539FD6F2100FF7D00111AA4 /* Products */,
+				16A202A96C2EEBC343D7CB67 /* Pods */,
+				DE5465503A84D38C67A8C5F0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C539FD6F2100FF7D00111AA4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C539FD6E2100FF7D00111AA4 /* GlovoClient.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C539FD702100FF7D00111AA4 /* GlovoClient */ = {
+			isa = PBXGroup;
+			children = (
+				C539FD7D2100FF8400111AA4 /* Info.plist */,
+				C5A5CD732102C6C00056F20A /* GlovoClient-Bridging-Header.h */,
+				C5A5CD5D2102C5D20056F20A /* External */,
+				C5A5CD702102C62C0056F20A /* Alerts */,
+				C5C3280A21010D9B006D1963 /* Models */,
+				C5C3280B21010DB5006D1963 /* Supporting Files */,
+				C5C3280C21010DCA006D1963 /* ViewControllers */,
+			);
+			path = GlovoClient;
+			sourceTree = "<group>";
+		};
+		C5A5CD5D2102C5D20056F20A /* External */ = {
+			isa = PBXGroup;
+			children = (
+				C5A5CD5E2102C5D20056F20A /* AVHUD.swift */,
+				C5A5CD5F2102C5D20056F20A /* SVProgressHUD */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		C5A5CD5F2102C5D20056F20A /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				C5A5CD602102C5D20056F20A /* SVRadialGradientLayer.m */,
+				C5A5CD612102C5D20056F20A /* SVIndefiniteAnimatedView.h */,
+				C5A5CD622102C5D20056F20A /* SVProgressHUD.h */,
+				C5A5CD632102C5D20056F20A /* SVProgressAnimatedView.m */,
+				C5A5CD642102C5D20056F20A /* SVProgressHUD-Prefix.pch */,
+				C5A5CD652102C5D20056F20A /* SVRadialGradientLayer.h */,
+				C5A5CD662102C5D20056F20A /* SVProgressHUD.m */,
+				C5A5CD672102C5D20056F20A /* SVIndefiniteAnimatedView.m */,
+				C5A5CD682102C5D20056F20A /* SVProgressHUD.bundle */,
+				C5A5CD692102C5D20056F20A /* SVProgressAnimatedView.h */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		C5A5CD702102C62C0056F20A /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				C5A5CD712102C62C0056F20A /* Alerts.swift */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
+		C5C3280A21010D9B006D1963 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C5DB84BD21038F1F001CACEC /* Json */,
+				C5DB84BB21038ED3001CACEC /* WorkingArea.swift */,
+				C5DB84BE2103A7F1001CACEC /* UserLocation.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C5C3280B21010DB5006D1963 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C539FD712100FF7D00111AA4 /* AppDelegate.swift */,
+				C539FD752100FF7D00111AA4 /* Main.storyboard */,
+				C539FD782100FF8400111AA4 /* Assets.xcassets */,
+				C539FD7A2100FF8400111AA4 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C5C3280C21010DCA006D1963 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C539FD732100FF7D00111AA4 /* MapViewController.swift */,
+				C5DB84B821037B94001CACEC /* City Selection */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C5DB84B821037B94001CACEC /* City Selection */ = {
+			isa = PBXGroup;
+			children = (
+				C5A5CD592102B9280056F20A /* CityTableViewController.swift */,
+				C5A5CD5B2102B9DD0056F20A /* CityTableViewCell.swift */,
+			);
+			path = "City Selection";
+			sourceTree = "<group>";
+		};
+		C5DB84BD21038F1F001CACEC /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				C5C3280821010D97006D1963 /* JsonFetcher.swift */,
+				C5C3280D21010E59006D1963 /* Countries.swift */,
+				C5C3280F2101109A006D1963 /* Cities.swift */,
+				C5C32811210112E2006D1963 /* CityDetails.swift */,
+			);
+			path = Json;
+			sourceTree = "<group>";
+		};
+		DE5465503A84D38C67A8C5F0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8ED4F66E7E85280CDF91578F /* libPods-GlovoClient.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C539FD6D2100FF7D00111AA4 /* GlovoClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C539FD802100FF8400111AA4 /* Build configuration list for PBXNativeTarget "GlovoClient" */;
+			buildPhases = (
+				14305D2837D1F1742AC21430 /* [CP] Check Pods Manifest.lock */,
+				C539FD6A2100FF7D00111AA4 /* Sources */,
+				C539FD6B2100FF7D00111AA4 /* Frameworks */,
+				C539FD6C2100FF7D00111AA4 /* Resources */,
+				55947652FD3A77EC306FEEEB /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GlovoClient;
+			productName = GlovoClient;
+			productReference = C539FD6E2100FF7D00111AA4 /* GlovoClient.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C539FD662100FF7D00111AA4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = HumileAnts;
+				TargetAttributes = {
+					C539FD6D2100FF7D00111AA4 = {
+						CreatedOnToolsVersion = 9.3.1;
+					};
+				};
+			};
+			buildConfigurationList = C539FD692100FF7D00111AA4 /* Build configuration list for PBXProject "GlovoClient" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C539FD652100FF7D00111AA4;
+			productRefGroup = C539FD6F2100FF7D00111AA4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C539FD6D2100FF7D00111AA4 /* GlovoClient */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C539FD6C2100FF7D00111AA4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C539FD7C2100FF8400111AA4 /* LaunchScreen.storyboard in Resources */,
+				C539FD792100FF8400111AA4 /* Assets.xcassets in Resources */,
+				C539FD772100FF7D00111AA4 /* Main.storyboard in Resources */,
+				C5A5CD6F2102C5D20056F20A /* SVProgressHUD.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		14305D2837D1F1742AC21430 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GlovoClient-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		55947652FD3A77EC306FEEEB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GlovoClient/Pods-GlovoClient-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GlovoClient/Pods-GlovoClient-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C539FD6A2100FF7D00111AA4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5C3280921010D97006D1963 /* JsonFetcher.swift in Sources */,
+				C5A5CD6E2102C5D20056F20A /* SVIndefiniteAnimatedView.m in Sources */,
+				C5C32812210112E2006D1963 /* CityDetails.swift in Sources */,
+				C5A5CD6C2102C5D20056F20A /* SVProgressAnimatedView.m in Sources */,
+				C5C328102101109A006D1963 /* Cities.swift in Sources */,
+				C5DB84BF2103A7F1001CACEC /* UserLocation.swift in Sources */,
+				C5DB84BC21038ED3001CACEC /* WorkingArea.swift in Sources */,
+				C5C3280E21010E59006D1963 /* Countries.swift in Sources */,
+				C5A5CD6D2102C5D20056F20A /* SVProgressHUD.m in Sources */,
+				C539FD742100FF7D00111AA4 /* MapViewController.swift in Sources */,
+				C539FD722100FF7D00111AA4 /* AppDelegate.swift in Sources */,
+				C5A5CD5C2102B9DD0056F20A /* CityTableViewCell.swift in Sources */,
+				C5A5CD6A2102C5D20056F20A /* AVHUD.swift in Sources */,
+				C5A5CD5A2102B9280056F20A /* CityTableViewController.swift in Sources */,
+				C5A5CD722102C62C0056F20A /* Alerts.swift in Sources */,
+				C5A5CD6B2102C5D20056F20A /* SVRadialGradientLayer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C539FD752100FF7D00111AA4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C539FD762100FF7D00111AA4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C539FD7A2100FF8400111AA4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C539FD7B2100FF8400111AA4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C539FD7E2100FF8400111AA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C539FD7F2100FF8400111AA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C539FD812100FF8400111AA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C23C3B903864232DEAC32370 /* Pods-GlovoClient.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 646C695EJJ;
+				INFOPLIST_FILE = GlovoClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.humileants.GlovoClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GlovoClient/GlovoClient-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C539FD822100FF8400111AA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABE1077767968B9ACD082117 /* Pods-GlovoClient.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 646C695EJJ;
+				INFOPLIST_FILE = GlovoClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.humileants.GlovoClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GlovoClient/GlovoClient-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C539FD692100FF7D00111AA4 /* Build configuration list for PBXProject "GlovoClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C539FD7E2100FF8400111AA4 /* Debug */,
+				C539FD7F2100FF8400111AA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C539FD802100FF8400111AA4 /* Build configuration list for PBXNativeTarget "GlovoClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C539FD812100FF8400111AA4 /* Debug */,
+				C539FD822100FF8400111AA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C539FD662100FF7D00111AA4 /* Project object */;
+}

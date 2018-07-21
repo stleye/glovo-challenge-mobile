@@ -1,0 +1,6 @@
+module Pods_GlovoClient {
+  umbrella header "Pods-GlovoClient-umbrella.h"
+
+  export *
+  module * { export * }
+}
