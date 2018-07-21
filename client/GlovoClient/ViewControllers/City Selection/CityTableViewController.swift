@@ -21,7 +21,7 @@ class CityTableViewController: UITableViewController {
             self.countries = ((jsonCollection as! JsonArray).decodables as! [Country]).sorted(by: { (c1, c2) -> Bool in c1.name <= c2.name })
             Cities.fetch(onCompletionHandler: { (jsonCollection) in
                 AVHUD.dismiss()
-                Alerts.showAlert(viewController: self, message: "You are not inside a working area, please select one from the list")
+                Alerts.showAlert(viewController: self, message: "Please select a location from the list")
                 let cities = (jsonCollection as! JsonArray).decodables as! [City]
                 for city in cities {
                     if self.cities[city.country_code] != nil {
