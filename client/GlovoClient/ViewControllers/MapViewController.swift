@@ -136,7 +136,9 @@ extension MapViewController: GMSMapViewDelegate {
             if markers.isEmpty {
                 for (_, workingAreas) in self.workingAreas {
                     let firstWorkingArea = workingAreas.first!
-                    let marker = GMSMarker(position: firstWorkingArea.center())
+                    let marker = WorkingAreaMarker(position: firstWorkingArea.center(), workingArea: firstWorkingArea)
+                    let icon = UIImageView(image: UIImage(named: "LocationIcon"))
+                    marker.iconView = icon
                     markers.append(marker)
                 }
             }
@@ -147,6 +149,12 @@ extension MapViewController: GMSMapViewDelegate {
             }
         }
         currentZoom = position.zoom
+    }
+
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        let workingArealocation = (marker as! WorkingAreaMarker).workingArea!.center()
+        self.positionOn(latitude: workingArealocation.latitude, longitude: workingArealocation.longitude)
+        return true
     }
 
 }
