@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C525CBCF2104D4FD00FF00D0 /* WorkingAreaMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C525CBCE2104D4FD00FF00D0 /* WorkingAreaMarker.swift */; };
 		C525CBD12104F63300FF00D0 /* LocationMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C525CBD02104F63300FF00D0 /* LocationMethod.swift */; };
-		C525CBD52104FFE200FF00D0 /* GMSMapViewWithZoomBoundary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C525CBD42104FFE200FF00D0 /* GMSMapViewWithZoomBoundary.swift */; };
 		C539FD722100FF7D00111AA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C539FD712100FF7D00111AA4 /* AppDelegate.swift */; };
 		C539FD742100FF7D00111AA4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C539FD732100FF7D00111AA4 /* MapViewController.swift */; };
 		C539FD772100FF7D00111AA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C539FD752100FF7D00111AA4 /* Main.storyboard */; };
@@ -38,7 +37,6 @@
 		C23C3B903864232DEAC32370 /* Pods-GlovoClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GlovoClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GlovoClient/Pods-GlovoClient.debug.xcconfig"; sourceTree = "<group>"; };
 		C525CBCE2104D4FD00FF00D0 /* WorkingAreaMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingAreaMarker.swift; sourceTree = "<group>"; };
 		C525CBD02104F63300FF00D0 /* LocationMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMethod.swift; sourceTree = "<group>"; };
-		C525CBD42104FFE200FF00D0 /* GMSMapViewWithZoomBoundary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMSMapViewWithZoomBoundary.swift; sourceTree = "<group>"; };
 		C539FD6E2100FF7D00111AA4 /* GlovoClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlovoClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C539FD712100FF7D00111AA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C539FD732100FF7D00111AA4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				C539FD7D2100FF8400111AA4 /* Info.plist */,
-				C525CBD42104FFE200FF00D0 /* GMSMapViewWithZoomBoundary.swift */,
 				C5A5CD732102C6C00056F20A /* GlovoClient-Bridging-Header.h */,
 				C5A5CD5D2102C5D20056F20A /* External */,
 				C5A5CD702102C62C0056F20A /* Alerts */,
@@ -342,7 +339,6 @@
 				C539FD742100FF7D00111AA4 /* MapViewController.swift in Sources */,
 				C539FD722100FF7D00111AA4 /* AppDelegate.swift in Sources */,
 				C5A5CD5C2102B9DD0056F20A /* CityTableViewCell.swift in Sources */,
-				C525CBD52104FFE200FF00D0 /* GMSMapViewWithZoomBoundary.swift in Sources */,
 				C5A5CD6A2102C5D20056F20A /* AVHUD.swift in Sources */,
 				C5A5CD5A2102B9280056F20A /* CityTableViewController.swift in Sources */,
 				C5A5CD722102C62C0056F20A /* Alerts.swift in Sources */,
