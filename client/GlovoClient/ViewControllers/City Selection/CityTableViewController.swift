@@ -21,7 +21,6 @@ class CityTableViewController: UITableViewController {
             self.countries = ((jsonCollection as! JsonArray).decodables as! [Country]).sorted(by: { (c1, c2) -> Bool in c1.name <= c2.name })
             Cities.fetch(onCompletionHandler: { (jsonCollection) in
                 AVHUD.dismiss()
-                Alerts.showAlert(viewController: self, message: "Please select a location from the list")
                 let cities = (jsonCollection as! JsonArray).decodables as! [City]
                 for city in cities {
                     if self.cities[city.country_code] != nil {
@@ -59,8 +58,7 @@ class CityTableViewController: UITableViewController {
         let dequeuedCell = tableView.dequeueReusableCell(withIdentifier: "cityCell", for: indexPath)
         if let cityCell = dequeuedCell as? CityTableViewCell {
             let city = cities[countries[indexPath.section].code]![indexPath.row]
-            cityCell.cityLabel.text = city.name
-            cityCell.workingAreas = city.workingAreas()
+            cityCell.city = city
         }
         return dequeuedCell
     }
@@ -68,8 +66,8 @@ class CityTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let mapVC = self.navigationController?.viewControllers.first as? MapViewController {
             self.navigationController?.popToRootViewController(animated: true)
-            let city = cities[countries[indexPath.section].code]![indexPath.row]
-            mapVC.currentLocation = city.workingAreas().first!.coordinates.first!
+            let cell = self.tableView(tableView, cellForRowAt: indexPath) as! CityTableViewCell
+            mapVC.currentLocation = cell.city!.getPointInside()
         }
     }
 
