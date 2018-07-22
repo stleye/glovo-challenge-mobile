@@ -24,21 +24,17 @@ class WorkingArea {
     }()
 
     lazy var path: GMSPath = {
-        let p = GMSMutablePath()
+        let path = GMSMutablePath()
         for coordinate in coordinates {
-            p.add(coordinate)
+            path.add(coordinate)
         }
-        return p
+        return path
     }()
 
     lazy var polygon: GMSPolygon = {
-        let p = GMSPolygon(path: path)
-        p.fillColor = UIColor(red: 0.28, green: 0.49, blue: 0.75, alpha: 0.5)
-        return p
-    }()
-
-    lazy var boundingArea: GMSCoordinateBounds = {
-        return GMSCoordinateBounds(path: GMSMutablePath(fromEncodedPath: encoded)!)
+        let polygon = GMSPolygon(path: path)
+        polygon.fillColor = UIColor(red: 0.28, green: 0.49, blue: 0.75, alpha: 0.5)
+        return polygon
     }()
 
     init(countryCode: String, cityCode: String, cityName: String, encoded: String) {
@@ -49,7 +45,7 @@ class WorkingArea {
     }
 
     func contains(location: CLLocationCoordinate2D) -> Bool {
-        return GMSGeometryContainsLocation(location, GMSPath(fromEncodedPath: encoded)!, true)
+        return GMSGeometryIsLocationOnPathTolerance(location, GMSPath(fromEncodedPath: encoded)!, true, 10)
     }
 
 }

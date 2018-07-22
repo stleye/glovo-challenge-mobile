@@ -40,7 +40,9 @@ class MapViewController: UIViewController {
         didSet {
             if navigationController?.topViewController != self { return }
             updateCurrentCity()
-            positionOn(city: currentCity!)
+            if currentCity != nil {
+                positionOn(city: currentCity!)
+            }
             if locationMethod == .GPS && currentCity == nil {
                 goToSelectCityScreen()
             }

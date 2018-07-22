@@ -12,7 +12,7 @@ class CityMarker: GMSMarker {
     var city: City?
 
     convenience init(city: City) {
-        self.init(position: city.center())
+        self.init(position: city.getPointInside())
         self.city = city
     }
 }

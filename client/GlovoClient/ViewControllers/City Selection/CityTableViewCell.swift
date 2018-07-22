@@ -11,6 +11,10 @@ import UIKit
 class CityTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cityLabel: UILabel!
-    var workingAreas: [WorkingArea] = []
+    var city: City? {
+        didSet {
+            cityLabel.text = city!.name
+        }
+    }
 
 }

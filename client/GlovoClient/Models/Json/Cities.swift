@@ -36,11 +36,8 @@ struct City: Decodable, Hashable {
         return bounds
     }
 
-    func center() -> CLLocationCoordinate2D {
-        let boundingArea = self.boundingArea()
-        let latitude = (boundingArea.northEast.latitude + boundingArea.southWest.latitude)/2
-        let longitude = (boundingArea.northEast.longitude + boundingArea.southWest.longitude)/2
-        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    func getPointInside() -> CLLocationCoordinate2D {
+        return workingAreas().first!.coordinates.first!
     }
 
     func contains(location: CLLocationCoordinate2D) -> Bool {
