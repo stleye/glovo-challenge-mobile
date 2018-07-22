@@ -110,10 +110,10 @@
 			children = (
 				C539FD7D2100FF8400111AA4 /* Info.plist */,
 				C5A5CD732102C6C00056F20A /* GlovoClient-Bridging-Header.h */,
+				C5C3280B21010DB5006D1963 /* Supporting Files */,
 				C5A5CD5D2102C5D20056F20A /* External */,
 				C5A5CD702102C62C0056F20A /* Alerts */,
 				C5C3280A21010D9B006D1963 /* Models */,
-				C5C3280B21010DB5006D1963 /* Supporting Files */,
 				C5C3280C21010DCA006D1963 /* ViewControllers */,
 			);
 			path = GlovoClient;
