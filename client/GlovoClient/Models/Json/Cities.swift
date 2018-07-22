@@ -43,6 +43,15 @@ struct City: Decodable, Hashable {
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 
+    func contains(location: CLLocationCoordinate2D) -> Bool {
+        for workingArea in workingAreas() {
+            if workingArea.contains(location: location) {
+                return true
+            }
+        }
+        return false
+    }
+
 }
 
 class Cities: JsonFetcher {

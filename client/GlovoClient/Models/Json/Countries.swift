@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct Country: Decodable {
+struct Country: Decodable, Hashable {
+    var hashValue: Int { return code.hashValue }
     let code: String
     let name: String
 }

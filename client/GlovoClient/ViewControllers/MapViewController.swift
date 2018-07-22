@@ -71,27 +71,19 @@ class MapViewController: UIViewController {
             for city in cities {
                 self.cities[city] = city.workingAreas()
                 for workingArea in self.cities[city] ?? [] {
-                    workingArea.polyline.map = self.mapView
+                    workingArea.polygon.map = self.mapView
                 }
                 let _ = self.locationManager
             }
         }) { (error) in
             AVHUD.dismiss()
-            print("Error")
+            Alerts.showAlert(viewController: self, message: "There has been an error obtaining the cities from the server")
         }
     }
 
     private func positionOn(city: City) {
         currentCity = city
-        let cityName = "\(city.country_code), \(city.name)"
-        CLGeocoder().geocodeAddressString(cityName) { (placeMarks, error) in
-            if error != nil || placeMarks == nil || placeMarks!.isEmpty {
-                self.mapView?.animate(with: GMSCameraUpdate.fit(city.boundingArea()))
-            }
-//            let location = placeMarks!.first!.location!.coordinate
-//            self.mapView?.animate(to: GMSCameraPosition.camera(withLatitude: location.latitude, longitude: location.longitude, zoom: 15.0))
-            self.mapView?.animate(with: GMSCameraUpdate.fit(city.boundingArea(), withPadding: 15.0))
-        }
+        self.mapView?.animate(with: GMSCameraUpdate.fit(city.boundingArea(), withPadding: 15.0))
     }
 
     private func goToSelectCityScreen() {
@@ -103,12 +95,10 @@ class MapViewController: UIViewController {
     private func updateCurrentCity() {
         currentCity = nil
         if currentLocation == nil { return }
-        for (city, workingAreas) in self.cities {
-            for workingArea in workingAreas {
-                if workingArea.contains(location: currentLocation!) {
-                    currentCity = city
-                    break
-                }
+        for city in self.cities.keys {
+            if city.contains(location: currentLocation!) {
+                currentCity = city
+                return
             }
         }
     }

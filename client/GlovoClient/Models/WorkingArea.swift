@@ -23,12 +23,18 @@ class WorkingArea {
         return decodePolyline(self.encoded) ?? []
     }()
 
-    lazy var polyline: GMSPolyline = {
-        let path = GMSMutablePath()
+    lazy var path: GMSPath = {
+        let p = GMSMutablePath()
         for coordinate in coordinates {
-            path.add(coordinate)
+            p.add(coordinate)
         }
-        return GMSPolyline(path: path)
+        return p
+    }()
+
+    lazy var polygon: GMSPolygon = {
+        let p = GMSPolygon(path: path)
+        p.fillColor = UIColor(red: 0.28, green: 0.49, blue: 0.75, alpha: 0.5)
+        return p
     }()
 
     lazy var boundingArea: GMSCoordinateBounds = {
