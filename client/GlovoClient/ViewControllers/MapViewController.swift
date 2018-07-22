@@ -21,14 +21,13 @@ class MapViewController: UIViewController {
         return locationManager
     }()
 
-    private var currentZoom: Float = 15.0
     private var workingAreas: [String: [WorkingArea]] = [:]
     private var locationMethod: LocationMethod = .NotDefined
     private var markers: [GMSMarker] = []
 
-    @IBOutlet weak var mapView: GMSMapView? {
+    @IBOutlet weak var mapView: GMSMapViewWithZoomBoundary? {
         didSet {
-            mapView?.delegate = self
+            mapView?.myDelegate = self
         }
     }
 
@@ -112,6 +111,19 @@ class MapViewController: UIViewController {
         }
     }
 
+    private func createMarkers() {
+        if markers.isEmpty {
+            for (_, workingAreas) in self.workingAreas {
+                markers.append(createMarkerFor(workingArea: workingAreas.first!))
+            }
+        }
+        markers.forEach { (marker) in marker.map = mapView }
+    }
+
+    private func clearMarkers() {
+        markers.forEach { (marker) in marker.map = nil }
+    }
+
     private func createMarkerFor(workingArea: WorkingArea) -> WorkingAreaMarker {
         let marker = WorkingAreaMarker(position: workingArea.center, workingArea: workingArea)
         let icon = UIImageView(image: UIImage(named: "LocationIcon"))
@@ -148,27 +160,19 @@ extension MapViewController: CLLocationManagerDelegate {
     }
 }
 
-extension MapViewController: GMSMapViewDelegate {
+extension MapViewController: GMSMapViewWithZoomBoundaryDelegate {
 
-    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
-        if position.zoom <= 7.0 && currentZoom > 7.0 {
-            if markers.isEmpty {
-                for (_, workingAreas) in self.workingAreas {
-                    markers.append(createMarkerFor(workingArea: workingAreas.first!))
-                }
-            }
-            markers.forEach { (marker) in marker.map = mapView }
-        } else {
-            if position.zoom >= 7.0 && currentZoom < 7.0 {
-                markers.forEach { (marker) in marker.map = nil }
-            }
-        }
-        currentZoom = position.zoom
-    }
-
-    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+    func mapView(_ mapView: GMSMapViewWithZoomBoundary, didTap marker: GMSMarker) -> Bool {
         self.positionOn(workingArea: (marker as! WorkingAreaMarker).workingArea!)
         return true
+    }
+
+    func mapView(_ mapView: GMSMapViewWithZoomBoundary, didChangeZoomBoundary zoom: Float) {
+        if zoom <= mapView.boundary {
+            createMarkers()
+        } else {
+            clearMarkers()
+        }
     }
 
 }
