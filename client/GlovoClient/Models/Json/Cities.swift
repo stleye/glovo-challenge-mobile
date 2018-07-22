@@ -15,7 +15,7 @@ struct City: Decodable {
     let country_code: String
     func workingAreas() -> [WorkingArea] {
         let notEmptyWorkingAreas = working_area.filter { (encoded) -> Bool in !encoded.isEmpty }
-        return notEmptyWorkingAreas.map{(encodedWorkingArea) -> WorkingArea in WorkingArea(fromEncoded: encodedWorkingArea)}
+        return notEmptyWorkingAreas.map{(encodedWorkingArea) -> WorkingArea in WorkingArea(cityCode: code, encoded: encodedWorkingArea)}
     }
 }
 

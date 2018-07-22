@@ -13,6 +13,8 @@ import GoogleMaps
 import MapKit
 
 class WorkingArea {
+    let cityCode: String
+
     private let encoded: String
 
     lazy var decodedCoordinates: [CLLocationCoordinate2D] = {
@@ -27,17 +29,23 @@ class WorkingArea {
         return GMSPolyline(path: path)
     }()
 
-    init(fromEncoded encoded: String) {
+    lazy var boundingArea: GMSCoordinateBounds = {
+        return GMSCoordinateBounds(path: GMSMutablePath(fromEncodedPath: encoded)!)
+    }()
+
+    lazy var center: CLLocationCoordinate2D = {
+        let latitude = (boundingArea.northEast.latitude + boundingArea.southWest.latitude)/2
+        let longitude = (boundingArea.northEast.longitude + boundingArea.southWest.longitude)/2
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }()
+
+    init(cityCode: String, encoded: String) {
+        self.cityCode = cityCode
         self.encoded = encoded
     }
 
     func contains(location: CLLocationCoordinate2D) -> Bool {
         return GMSGeometryContainsLocation(location, GMSPath(fromEncodedPath: encoded)!, true)
-    }
-
-    //Fix this, I am not returning the center
-    func center() -> CLLocationCoordinate2D {
-        return decodedCoordinates.first ?? CLLocationCoordinate2D(latitude: 0, longitude: 0)
     }
 
 }

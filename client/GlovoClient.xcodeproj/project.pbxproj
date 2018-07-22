@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C525CBCF2104D4FD00FF00D0 /* WorkingAreaMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C525CBCE2104D4FD00FF00D0 /* WorkingAreaMarker.swift */; };
+		C525CBD12104F63300FF00D0 /* LocationMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C525CBD02104F63300FF00D0 /* LocationMethod.swift */; };
 		C539FD722100FF7D00111AA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C539FD712100FF7D00111AA4 /* AppDelegate.swift */; };
 		C539FD742100FF7D00111AA4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C539FD732100FF7D00111AA4 /* MapViewController.swift */; };
 		C539FD772100FF7D00111AA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C539FD752100FF7D00111AA4 /* Main.storyboard */; };
@@ -28,7 +29,6 @@
 		C5C32812210112E2006D1963 /* CityDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C32811210112E2006D1963 /* CityDetails.swift */; };
 		C5D472CD64DC0FD4FEADD45E /* libPods-GlovoClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ED4F66E7E85280CDF91578F /* libPods-GlovoClient.a */; };
 		C5DB84BC21038ED3001CACEC /* WorkingArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DB84BB21038ED3001CACEC /* WorkingArea.swift */; };
-		C5DB84BF2103A7F1001CACEC /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DB84BE2103A7F1001CACEC /* UserLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +36,7 @@
 		ABE1077767968B9ACD082117 /* Pods-GlovoClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GlovoClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-GlovoClient/Pods-GlovoClient.release.xcconfig"; sourceTree = "<group>"; };
 		C23C3B903864232DEAC32370 /* Pods-GlovoClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GlovoClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GlovoClient/Pods-GlovoClient.debug.xcconfig"; sourceTree = "<group>"; };
 		C525CBCE2104D4FD00FF00D0 /* WorkingAreaMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingAreaMarker.swift; sourceTree = "<group>"; };
+		C525CBD02104F63300FF00D0 /* LocationMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMethod.swift; sourceTree = "<group>"; };
 		C539FD6E2100FF7D00111AA4 /* GlovoClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlovoClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C539FD712100FF7D00111AA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C539FD732100FF7D00111AA4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -63,7 +64,6 @@
 		C5C3280F2101109A006D1963 /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
 		C5C32811210112E2006D1963 /* CityDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetails.swift; sourceTree = "<group>"; };
 		C5DB84BB21038ED3001CACEC /* WorkingArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingArea.swift; sourceTree = "<group>"; };
-		C5DB84BE2103A7F1001CACEC /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,8 +158,8 @@
 			children = (
 				C5DB84BD21038F1F001CACEC /* Json */,
 				C5DB84BB21038ED3001CACEC /* WorkingArea.swift */,
-				C5DB84BE2103A7F1001CACEC /* UserLocation.swift */,
 				C525CBCE2104D4FD00FF00D0 /* WorkingAreaMarker.swift */,
+				C525CBD02104F63300FF00D0 /* LocationMethod.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -333,7 +333,6 @@
 				C5C32812210112E2006D1963 /* CityDetails.swift in Sources */,
 				C5A5CD6C2102C5D20056F20A /* SVProgressAnimatedView.m in Sources */,
 				C5C328102101109A006D1963 /* Cities.swift in Sources */,
-				C5DB84BF2103A7F1001CACEC /* UserLocation.swift in Sources */,
 				C5DB84BC21038ED3001CACEC /* WorkingArea.swift in Sources */,
 				C5C3280E21010E59006D1963 /* Countries.swift in Sources */,
 				C5A5CD6D2102C5D20056F20A /* SVProgressHUD.m in Sources */,
@@ -344,6 +343,7 @@
 				C5A5CD5A2102B9280056F20A /* CityTableViewController.swift in Sources */,
 				C5A5CD722102C62C0056F20A /* Alerts.swift in Sources */,
 				C5A5CD6B2102C5D20056F20A /* SVRadialGradientLayer.m in Sources */,
+				C525CBD12104F63300FF00D0 /* LocationMethod.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
