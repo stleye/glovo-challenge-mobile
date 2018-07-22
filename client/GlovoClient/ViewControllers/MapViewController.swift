@@ -21,7 +21,7 @@ class MapViewController: UIViewController {
         return locationManager
     }()
 
-    private var workingAreas: [String: [WorkingArea]] = [:]
+    private var cities: [City: [WorkingArea]] = [:]
     private var locationMethod: LocationMethod = .NotDefined
     private var markers: [GMSMarker] = []
 
@@ -32,7 +32,6 @@ class MapViewController: UIViewController {
     }
 
     @IBOutlet weak var cityLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var timeZoneLabel: UILabel!
     @IBOutlet weak var languageLabel: UILabel!
@@ -40,17 +39,18 @@ class MapViewController: UIViewController {
     var currentLocation: CLLocationCoordinate2D? {
         didSet {
             if navigationController?.topViewController != self { return }
-            positionOn(latitude: currentLocation!.latitude, longitude: currentLocation!.longitude)
-            if locationMethod == .GPS && currentWorkingArea == nil {
+            updateCurrentCity()
+            positionOn(city: currentCity!)
+            if locationMethod == .GPS && currentCity == nil {
                 goToSelectCityScreen()
             }
         }
     }
 
-    private var currentWorkingArea: WorkingArea? {
+    private var currentCity: City? {
         didSet {
-            if currentWorkingArea == nil { return }
-            CityDetails.getFor(cityCode: currentWorkingArea!.cityCode, onCompletionHandler: { (city) in
+            if currentCity == nil { return }
+            CityDetails.getFor(cityCode: currentCity!.code, onCompletionHandler: { (city) in
                 let details = ((city as! JsonDictionary).decodable as! CityDetail)
                 self.cityLabel.text = details.name
                 self.currencyLabel.text = "Currency - \(details.currency)"
@@ -69,8 +69,8 @@ class MapViewController: UIViewController {
             AVHUD.dismiss()
             let cities = (jsonCollection as! JsonArray).decodables as! [City]
             for city in cities {
-                self.workingAreas[city.code] = city.workingAreas()
-                for workingArea in self.workingAreas[city.code] ?? [] {
+                self.cities[city] = city.workingAreas()
+                for workingArea in self.cities[city] ?? [] {
                     workingArea.polyline.map = self.mapView
                 }
                 let _ = self.locationManager
@@ -81,15 +81,17 @@ class MapViewController: UIViewController {
         }
     }
 
-    private func positionOn(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
-        updateCurrentWorkingArea()
-        let camera = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: 15.0)
-        mapView?.animate(to: camera)
-    }
-
-    private func positionOn(workingArea: WorkingArea) {
-        currentWorkingArea = workingArea
-        mapView?.animate(with: GMSCameraUpdate.fit(workingArea.boundingArea))
+    private func positionOn(city: City) {
+        currentCity = city
+        let cityName = "\(city.country_code), \(city.name)"
+        CLGeocoder().geocodeAddressString(cityName) { (placeMarks, error) in
+            if error != nil || placeMarks == nil || placeMarks!.isEmpty {
+                self.mapView?.animate(with: GMSCameraUpdate.fit(city.boundingArea()))
+            }
+//            let location = placeMarks!.first!.location!.coordinate
+//            self.mapView?.animate(to: GMSCameraPosition.camera(withLatitude: location.latitude, longitude: location.longitude, zoom: 15.0))
+            self.mapView?.animate(with: GMSCameraUpdate.fit(city.boundingArea(), withPadding: 15.0))
+        }
     }
 
     private func goToSelectCityScreen() {
@@ -98,13 +100,13 @@ class MapViewController: UIViewController {
         self.performSegue(withIdentifier: "citySelectionSegue", sender: self)
     }
 
-    private func updateCurrentWorkingArea() {
-        currentWorkingArea = nil
+    private func updateCurrentCity() {
+        currentCity = nil
         if currentLocation == nil { return }
-        for (_, workingAreas) in self.workingAreas {
+        for (city, workingAreas) in self.cities {
             for workingArea in workingAreas {
                 if workingArea.contains(location: currentLocation!) {
-                    currentWorkingArea = workingArea
+                    currentCity = city
                     break
                 }
             }
@@ -114,8 +116,8 @@ class MapViewController: UIViewController {
     private func createMarkers() {
         if markers.first?.map != nil { return }
         if markers.isEmpty {
-            for (_, workingAreas) in self.workingAreas {
-                markers.append(createMarkerFor(workingArea: workingAreas.first!))
+            for city in self.cities.keys {
+                markers.append(createMarkerFor(city: city))
             }
         }
         markers.forEach { (marker) in marker.map = mapView }
@@ -126,8 +128,8 @@ class MapViewController: UIViewController {
         markers.forEach { (marker) in marker.map = nil }
     }
 
-    private func createMarkerFor(workingArea: WorkingArea) -> WorkingAreaMarker {
-        let marker = WorkingAreaMarker(position: workingArea.center, workingArea: workingArea)
+    private func createMarkerFor(city: City) -> CityMarker {
+        let marker = CityMarker(city: city)
         let icon = UIImageView(image: UIImage(named: "LocationIcon"))
         marker.iconView = icon
         return marker
@@ -165,7 +167,7 @@ extension MapViewController: CLLocationManagerDelegate {
 extension MapViewController: GMSMapViewDelegate {
 
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        self.positionOn(workingArea: (marker as! WorkingAreaMarker).workingArea!)
+        self.positionOn(city: (marker as! CityMarker).city!)
         return true
     }
 

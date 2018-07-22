@@ -69,7 +69,7 @@ class CityTableViewController: UITableViewController {
         if let mapVC = self.navigationController?.viewControllers.first as? MapViewController {
             self.navigationController?.popToRootViewController(animated: true)
             let city = cities[countries[indexPath.section].code]![indexPath.row]
-            mapVC.currentLocation = city.workingAreas().first!.decodedCoordinates.first!
+            mapVC.currentLocation = city.workingAreas().first!.coordinates.first!
         }
     }
 

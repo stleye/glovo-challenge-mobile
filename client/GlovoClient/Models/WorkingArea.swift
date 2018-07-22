@@ -13,17 +13,19 @@ import GoogleMaps
 import MapKit
 
 class WorkingArea {
+    let countryCode: String
     let cityCode: String
+    let cityName: String
 
     private let encoded: String
 
-    lazy var decodedCoordinates: [CLLocationCoordinate2D] = {
+    lazy var coordinates: [CLLocationCoordinate2D] = {
         return decodePolyline(self.encoded) ?? []
     }()
 
     lazy var polyline: GMSPolyline = {
         let path = GMSMutablePath()
-        for coordinate in decodedCoordinates {
+        for coordinate in coordinates {
             path.add(coordinate)
         }
         return GMSPolyline(path: path)
@@ -33,14 +35,10 @@ class WorkingArea {
         return GMSCoordinateBounds(path: GMSMutablePath(fromEncodedPath: encoded)!)
     }()
 
-    lazy var center: CLLocationCoordinate2D = {
-        let latitude = (boundingArea.northEast.latitude + boundingArea.southWest.latitude)/2
-        let longitude = (boundingArea.northEast.longitude + boundingArea.southWest.longitude)/2
-        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-    }()
-
-    init(cityCode: String, encoded: String) {
+    init(countryCode: String, cityCode: String, cityName: String, encoded: String) {
+        self.countryCode = countryCode
         self.cityCode = cityCode
+        self.cityName = cityName
         self.encoded = encoded
     }
 

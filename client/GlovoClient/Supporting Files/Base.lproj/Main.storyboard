@@ -26,34 +26,28 @@
                                 <rect key="frame" x="0.0" y="517" width="375" height="150"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="anX-Iz-ZvP">
-                                        <rect key="frame" x="8" y="8" width="88" height="134"/>
+                                        <rect key="frame" x="8" y="8" width="77" height="134"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1n-1J-abB">
-                                                <rect key="frame" x="0.0" y="0.0" width="30.5" height="27"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59w-R2-uo5">
-                                                <rect key="frame" x="0.0" y="27" width="88" height="26.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="30.5" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALh-5D-4UQ">
-                                                <rect key="frame" x="0.0" y="53.5" width="70.5" height="27"/>
+                                                <rect key="frame" x="0.0" y="33.5" width="70.5" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TimeZone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83d-ll-BGU">
-                                                <rect key="frame" x="0.0" y="80.5" width="77" height="26.5"/>
+                                                <rect key="frame" x="0.0" y="67" width="77" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQH-Be-Zay">
-                                                <rect key="frame" x="0.0" y="107" width="76" height="27"/>
+                                                <rect key="frame" x="0.0" y="100.5" width="76" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -87,7 +81,6 @@
                     <connections>
                         <outlet property="cityLabel" destination="l1n-1J-abB" id="5cg-bw-n4w"/>
                         <outlet property="currencyLabel" destination="ALh-5D-4UQ" id="99Z-dC-2AU"/>
-                        <outlet property="descriptionLabel" destination="59w-R2-uo5" id="Az6-lJ-Vce"/>
                         <outlet property="languageLabel" destination="bQH-Be-Zay" id="LDJ-zp-s5B"/>
                         <outlet property="mapView" destination="dpq-XB-pQv" id="fSa-gY-gxl"/>
                         <outlet property="timeZoneLabel" destination="83d-ll-BGU" id="eQy-Li-bEv"/>
